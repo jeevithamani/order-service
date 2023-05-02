@@ -1,0 +1,13 @@
+services:
+  order-postgres-db:
+    image: postgres:12.7 # https://hub.docker.com/_/postgres
+    container_name: "order-postgres-db"
+    ports:
+      - 5435:5432
+    environment:
+      - POSTGRES_DB=order
+      - POSTGRES_USER=ordertest
+      - POSTGRES_PASSWORD=local
+    restart: 'always'
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
